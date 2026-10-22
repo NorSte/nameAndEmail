@@ -3,8 +3,9 @@ import "./App.css";
 export default function App() {
   return (
     <div>
+      <h1>Name and Email Practice</h1>
       <>
-        <ContactButton value={0} name={"Taylor"} />
+        <ContactButton name={"Taylor"} />
       </>
       <hr />
       <>
@@ -23,8 +24,8 @@ export default function App() {
   );
 }
 
-function ContactButton({ value, name }) {
-  return <button value={value}>{name}</button>;
+function ContactButton({ name }) {
+  return <button>{name}</button>;
 }
 
 function Input({ id, label }) {
