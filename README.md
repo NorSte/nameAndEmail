@@ -1,16 +1,59 @@
-# React + Vite
+# Name and Email
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Exam coding challenge: a small React + Vite app that edits a contact's name and email.
 
-Currently, two official plugins are available:
+## Task
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Complete the contact editor in `src/App.jsx` using the data in `src/data/contacts.js`:
 
-## React Compiler
+- `initialContacts`: list of `{ id, name, email }` used to fill the contact buttons and the form fields.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+#### Requirements
 
-## Expanding the Oxlint configuration
+1. One button per contact, labelled with the contact's name.
+2. Clicking a contact button loads that contact into the form.
+3. Name input (`data-testid="name"`) shows the selected contact's name.
+4. Mail input (`data-testid="email"`) shows the selected contact's email.
+5. Defaults: the first contact is selected on load.
+6. Editing an input only changes the form, not the contact list.
+7. "Save" writes the edited name and email back to the selected contact.
+8. "Reset" restores the inputs to the last saved values of the selected contact.
+9. Switching contact after editing without saving discards the edits.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+### Hints
+
+- Keep `contacts` and the selected contact id in state with `useState`.
+- Keep the form fields in their own state so edits are not applied until Save.
+- Make the inputs controlled: set `value` and `onChange`.
+- Use `key={contact.id}` when rendering the buttons.
+- Update the list immutably with `map`, do not mutate `contacts`.
+
+## Getting started
+
+```
+npm install
+npm run dev
+```
+
+## Scripts
+
+| Command           | Description                  |
+| ----------------- | ---------------------------- |
+| `npm run dev`     | Start the dev server         |
+| `npm run build`   | Production build             |
+| `npm run preview` | Preview the production build |
+| `npm run lint`    | Lint with Oxlint             |
+
+## Project structure
+
+```
+src/
+  App.jsx            Contact editor, ContactButton and Input
+  data/contacts.js   Contact list
+  index.css          Styles
+  main.jsx           Entry point
+```
+
+## Stack
+
+React 19, Vite, Oxlint.
